@@ -1,3 +1,3 @@
 build:
   docker:
-    web: client/Dockerfile.prod
+    web: api-service/Dockerfile
