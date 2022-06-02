@@ -2,7 +2,7 @@
 FROM node:alpine 
 # Set the working directory
 WORKDIR '/app' 
-
+ENV PORT = $port
 # Cache the node_modules
 COPY ./package.json ./   
 RUN npm install
@@ -19,4 +19,4 @@ EXPOSE $port
 # The command to run the angular process on the container
 #CMD ["ng", "serve", "--host", "0.0.0.0", "--disable-host-check", "--port", $port]
 
-CMD ["sh", "-c", "ng serve --host 0.0.0.0 --disable-host-check --port $port"]
+CMD ["sh", "-c", "ng serve --host 0.0.0.0 --disable-host-check --port $PORT"]
