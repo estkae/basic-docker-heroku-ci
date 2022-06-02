@@ -14,7 +14,7 @@ RUN npm i -g @angular/cli
 COPY . .
 
 #Open the port 4200
-EXPOSE 4200
+EXPOSE $port
 
 # The command to run the angular process on the container
-CMD ["ng", "serve", "--host", "0.0.0.0", "--disable-host-check"]
+CMD ["ng", "serve", "--host", "0.0.0.0", "--disable-host-check", "--port", $port]
