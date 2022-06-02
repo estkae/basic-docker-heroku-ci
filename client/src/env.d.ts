@@ -4,5 +4,6 @@ declare var process: {
     // We'are going to store here our GITPOD_WORKSPACE_URL
     NG_APP_GITPOD_WORKSPACE_URL: string;
     NG_HEROKU_API_URL : string;
+    ZUMBA:string;
   };
 };
