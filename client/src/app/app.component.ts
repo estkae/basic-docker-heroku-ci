@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,18 +10,24 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'client';
   //Declare the ninjaTurtles variable
-  ninjaTurtles : any;
+  ninjaTurtles: any;
   //Copy here your server URL
-  tmp_server_url = process.env.NG_APP_GITPOD_WORKSPACE_URL;
-  port = 5000
-  api_url = `${this.tmp_server_url.substring(0,8)}${this.port}-${this.tmp_server_url.substring(8)}`;
+  api_url = "";
   
   constructor(private http: HttpClient) {
+    if(process.env.NG_APP_GITPOD_WORKSPACE_URL ) {
+      let tmp_server_url = process.env.NG_APP_GITPOD_WORKSPACE_URL;
+      let port = 5000
+      this.api_url = `${tmp_server_url.substring(0, 8)}${port}-${tmp_server_url.substring(8)}`;
+    }
+  
+    if(process.env.NG_HEROKU_API_URL) this.api_url = process.env.NG_HEROKU_API_URL;
+    
     console.log(this.api_url);
     //Request the ninjaTurtles list
     //Update the variable ninjaTurtles with new data
     this.http.get(`${this.api_url}/api/ninjaTurtles`).
-    subscribe(data => this.ninjaTurtles = data);  
+      subscribe(data => this.ninjaTurtles = data);
   }
 }
 

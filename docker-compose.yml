@@ -5,6 +5,8 @@ services:
       build:
         dockerfile: Dockerfile
         context: ./api-service
+      environment:
+        - port=5000
       # Creta a shared volume
       volumes:
         - ./api-service:/app
@@ -25,6 +27,7 @@ services:
       #Set the environment variables
       environment:
         - NG_APP_GITPOD_WORKSPACE_URL=${GITPOD_WORKSPACE_URL}
+        - port=4200
       #Map the port 4200 on the container to the port 4200 on the host machine
       ports:
         - 4200:4200
