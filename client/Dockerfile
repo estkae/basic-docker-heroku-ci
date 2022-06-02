@@ -17,4 +17,6 @@ COPY . .
 EXPOSE $port
 
 # The command to run the angular process on the container
-CMD ["ng", "serve", "--host", "0.0.0.0", "--disable-host-check", "--port", $port]
+#CMD ["ng", "serve", "--host", "0.0.0.0", "--disable-host-check", "--port", $port]
+
+CMD ["sh", "-c", "ng serve --host 0.0.0.0 --disable-host-check --port $port"]
