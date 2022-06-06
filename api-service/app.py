@@ -10,10 +10,10 @@ env_port = 5000
 if environ.get('PORT') is not None: env_port =  environ.get('PORT')
 
 ninjaTurtles = [
-    {'id': 0, 'name': 'Raffaello'},
-    {'id': 1, 'name': 'Donatello'},
-    {'id': 2, 'name': 'Michelangelo'},
-    {'id': 3, 'name': 'Leonardo'},
+    {'id': 0, 'name': '-Raffaello-'},
+    {'id': 1, 'name': '-Donatello-'},
+    {'id': 2, 'name': '-Michelangelo-'},
+    {'id': 3, 'name': '-Leonardo-'},
 ]
 
 @app.route('/', methods=['GET'])
