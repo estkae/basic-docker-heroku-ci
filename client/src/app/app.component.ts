@@ -15,9 +15,7 @@ export class AppComponent {
   api_url = "";
   
   constructor(private http: HttpClient) {
-    console.log(process.env.NG_APP_ZUMBA)
-    console.log(process.env.NG_APP_GITPOD_WORKSPACE_URL)
-    console.log(process.env.NG_APP_HEROKU_API_URL)
+ 
     if(process.env.NG_APP_GITPOD_WORKSPACE_URL != undefined ) {
       let tmp_server_url = process.env.NG_APP_GITPOD_WORKSPACE_URL.replace('https://','');;
       let port = 5000

@@ -5,8 +5,6 @@ services:
       build:
         dockerfile: Dockerfile
         context: ./api-service
-      environment:
-        - port=5000
       # Creta a shared volume
       volumes:
         - ./api-service:/app
@@ -26,7 +24,6 @@ services:
         - ./client:/app
       #Set the environment variables
       environment:
-        - NG_APP_ZUMBA=${GITPOD_WORKSPACE_URL}
         - NG_APP_GITPOD_WORKSPACE_URL=${GITPOD_WORKSPACE_URL}
       #Map the port 4200 on the container to the port 4200 on the host machine
       ports:
